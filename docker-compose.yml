@@ -1,0 +1,16 @@
+version: '3'
+services:
+  zerotier-moon:
+    image: esaller/zerotier-moon:latest
+    command:
+    # Change this to your hosts IP (-6 for IPv6)
+    - "-4 1.2.3.4"
+    - "-p 9994"
+    ports:
+    # Changed from default to avoid collision with other zerotier servics
+      - "9994:9993"
+    volumes:
+      - "zerotier-moon:/var/lib/zerotier-one"
+
+volumes:
+  zerotier-moon:
