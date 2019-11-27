@@ -18,9 +18,9 @@ LABEL maintainer="Eduard Saller <github@saller.io>"
 EXPOSE 9993/udp
 
 RUN mkdir -p /var/lib/zerotier-one
-COPY --from=builder /usr/sbin/zerotier-cli /usr/sbin/zerotier-cli
-COPY --from=builder /usr/sbin/zerotier-idtool /usr/sbin/zerotier-idtool
-COPY --from=builder /usr/sbin/zerotier-one /usr/sbin/zerotier-one
+COPY --from=builder /usr/sbin/zerotier-cli /zerotier-cli
+COPY --from=builder /usr/sbin/zerotier-idtool /zerotier-idtool
+COPY --from=builder /usr/sbin/zerotier-one /zerotier-one
 
 COPY startup.sh /startup.sh
 RUN chmod +x /startup.sh
