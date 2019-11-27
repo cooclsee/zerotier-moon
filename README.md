@@ -1,8 +1,11 @@
-# docker-zerotier-moon
+# zerotier-moon
 A docker image to create ZeroTier moon in one setp.
 
+
 Forked from: https://github.com/rwv/docker-zerotier-moon
+
 Changes do reflect the way the offical zerotier Docker image is built
+
 ZeroTier Version: 1.4.4
 
 ## Usage
