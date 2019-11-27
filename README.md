@@ -1,18 +1,22 @@
 # docker-zerotier-moon
 A docker image to create ZeroTier moon in one setp.
 
+Forked from: https://github.com/rwv/docker-zerotier-moon
+Changes do reflect the way the offical zerotier Docker image is built
+ZeroTier Version: 1.4.4
+
 ## Usage
 
 ### Pull the image
 
 ```
-docker pull seedgou/zerotier-moon
+docker pull esaller/zerotier-moon
 ```
 
 ### Start a container
 
 ```
-docker run --name zerotier-moon -d --restart always -p 9993:9993/udp seedgou/zerotier-moon -4 1.2.3.4
+docker run --name zerotier-moon -d --restart always -p 9993:9993/udp esaller/zerotier-moon -4 1.2.3.4
 ```
  
 Replace `1.2.3.4` with your moon's IP.
@@ -37,7 +41,7 @@ docker exec zerotier-moon /zerotier-cli
 ### Mount ZeroTier conf folder
 
 ```
-docker run --name zerotier-moon -d -p 9993:9993/udp -v ~/somewhere:/var/lib/zerotier-one seedgou/zerotier-moon -4 1.2.3.4 -6 2001:abcd:abcd::1
+docker run --name zerotier-moon -d -p 9993:9993/udp -v ~/somewhere:/var/lib/zerotier-one esaller/zerotier-moon -4 1.2.3.4 -6 2001:abcd:abcd::1
 ```
 
 This will mount `~/somewhere` to `/var/lib/zerotier-one` inside the container, allowing your ZeroTier moon to presist the same moon id.  If you don't do this, when you start a new container, a new moon id will be generated.
@@ -45,7 +49,7 @@ This will mount `~/somewhere` to `/var/lib/zerotier-one` inside the container, a
 ### IPv6 support
 
 ```
-docker run --name zerotier-moon -d -p 9993:9993/udp seedgou/zerotier-moon -4 1.2.3.4 -6 2001:abcd:abcd::1
+docker run --name zerotier-moon -d -p 9993:9993/udp esaller/zerotier-moon -4 1.2.3.4 -6 2001:abcd:abcd::1
 ```
 
 Replace `1.2.3.4`, `2001:abcd:abcd::1` with your moon's IP. You can remove `-4` option in pure IPv6 environment.
@@ -53,7 +57,7 @@ Replace `1.2.3.4`, `2001:abcd:abcd::1` with your moon's IP. You can remove `-4` 
 ### Custom port
 
 ```
-docker run --name zerotier-moon -d -p 9994:9993/udp seedgou/zerotier-moon -4 1.2.3.4 -p 9994
+docker run --name zerotier-moon -d -p 9994:9993/udp esaller/zerotier-moon -4 1.2.3.4 -p 9994
 ```
 
 Replace 9994 with your own custom port for ZeroTier moon.
